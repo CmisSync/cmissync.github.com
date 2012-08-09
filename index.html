@@ -39,15 +39,41 @@ Available for Linux, Mac, Windows.
 
 <p>The first release of CmisSync will happen before the end of the year.</p>
 
-<h3>License</h3>
+<h3>Open Source</h3>
 
-<p>CmisSync is Open Source software and licensed under the <code>GNU General Public License version 3 or later</code>. You are welcome to change and redistribute it under certain conditions. For more information see the <code>legal/LICENSE</code> file.</p>
+<p>CmisSync is Open Source software and licensed under the GNU-GPLv3. You are welcome to change and redistribute it, see <a href="https://raw.github.com/nicolas-raoul/CmisSync/master/legal/LICENSE.txt">the license</a> for details.</p>
 
-<h3>Development</h3>
+<h3>Get involved!</h3>
 
-<p>CmisSync re-uses a lot of source code from <a href="http://sparkleshare.org">SparkleShare</a>, an excellent Git sync tool. You might find references to SparkleShare in the source code. Please note that CmisSync is not SparkleShare and does not represent it. The build instructions of SparkleShare apply, though:</p>
+<p>
+We are recruiting volunteers!
+CmisSync is mostly C#, because we re-use the UI from <a href="http://sparkleshare.org">SparkleShare</a>, an excellent Git sync tool.
+You might find references to SparkleShare in the source code.
+Please note that CmisSync is not SparkleShare and does not represent it.
+The build instructions of SparkleShare apply, though (
+<a href="https://github.com/hbons/SparkleShare/blob/master/SparkleShare/Linux/README.md">Linux</a>
+<a href="https://github.com/hbons/SparkleShare/blob/master/SparkleShare/Mac/README.md">Mac</a>
+<a href="https://github.com/hbons/SparkleShare/blob/master/SparkleShare/Windows/README.md">Windows</a>
+).
+</p>
+<p>
+Here is the plan:
+<ol>
+<li>Write a mock SparkleShare backend for the CMIS protocol</li>
+<li>Implement one-way sync (from CMIS server to desktop)</li>
+<li>Minor UI fixes (SparkleShare icon)</li>
+<li>Implement two-way sync without</li>
+</ol>
+</p>
 
-<p><a href="https://github.com/hbons/SparkleShare/blob/master/SparkleShare/Linux/README.md">Linux</a><br><a href="https://github.com/hbons/SparkleShare/blob/master/SparkleShare/Mac/README.md">Mac</a><br><a href="https://github.com/hbons/SparkleShare/blob/master/SparkleShare/Windows/README.md">Windows</a>  </p>
+<h3>About CMIS</h3>
+
+<p>
+CMIS (Content Management Interoperability Services) is an OASIS standard that allows any ECM client to communicate with any ECM repository (a bit like the HTML standard allows all web browsers to communicate with all web servers).
+CMIS is supported by all major content management vendors, and is supported by the following ECM servers:
+Alfresco, Day Software, EMC Documentum, IBM FileNet, IBM LotusLive, IBM Lotus Quickr, eXo Platform, Interwoven, KnowledgeTree, Magnolia, Microsoft SharePoint, NemakiWare, Nuxeo, OpenText, Sense/Net, TYPO3 and many others.
+</p>
+
       </section>
     </div>
 
