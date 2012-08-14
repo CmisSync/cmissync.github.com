@@ -25,7 +25,7 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font: inherit;
+  font: 400 1em Open Sans, sans-serif;
   vertical-align: baseline;
 }
 
@@ -283,13 +283,18 @@ Full-Width Styles
   top:0;
   right: 10px;
   z-index: 10;
-  padding: 10px 50px 10px 10px;
-  color: #fff;
-  background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
+  padding: 10px 10px 10px 10px;
+  color: #343434;
+  background: /*url('../images/blacktocat.png')*/ #e3af1b no-repeat 95% 50%;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+#forkme_banner a {
+  color: #343434;
+  font-weight: 700;
+  text-decoration:underline
 }
 
 #header_wrap {
@@ -372,6 +377,11 @@ Full-Width Styles
 
 #footer_wrap {
   background: #212121;
+}
+
+#footer_wrap a {
+  color: #e3af1b;
+  text-decoration:underline
 }
 
 
