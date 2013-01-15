@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="CmisSync: It's like Dropbox for Enterprise Content Management" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800">
 
     <title>CmisSync</title>
@@ -23,7 +23,7 @@
             <a href="http://groups.google.com/group/cmissync">Forum</a> ・
             <a href="https://twitter.com/CmisSync1">Twitter</a>
           </div>
-        <img src="images/CmisSync_logo_70.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
+        <img src="../images/CmisSync_logo_70.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
           <h1 id="project_title">CmisSync</h1>
           <h2 id="project_tagline">Dropbox-like sync for Google Drive!</h2>
         </header>
@@ -36,21 +36,52 @@
 <p>
 <a href="/">CmisSync</a> allows you to keep in sync with your Google Drive, and read/edit the documents even when offline.
 </p>
+<img src="../images/CmisSync-sync-Google-Drive.png"/>
+
+<h1>Step 1</h1>
+
 <p>
-<a href="https://github.com/nicolas-raoul/CmisSync/downloads">&rarr;Download&larr;</a> (Available for Windows 7. Vista, Mac, Linux will follow soon)<br/>
-<small>(<a href="http://go.microsoft.com/fwlink/?LinkId=225704">.NET Framework 4.5</a> needed)</small>
+Install <a href="http://go.microsoft.com/fwlink/?LinkId=225704">.NET</a> and the latest <a href="https://github.com/nicolas-raoul/CmisSync/downloads">CmisSync</a>.
 </p>
 
-<h3>Step-by-step</h3>
-<h3>Features</h3>
+<h1>Step 2</h1>
+<p>
+Run CmisSync.<br/>
+After a few welcome screens, it will start running as an icon in the tray:
+</p>
+<img src="../images/CmisSync-tray-icon-arrow.png"/>
+<p>
+Click on the tray icon and select "Add a CMIS folder".
+</p>
 
-<ul>
-<li>Two-way sync</li>
-<li>Conflict handling</li>
-<li>Easy to install</li>
-<li>Open source</li>
-</ul>
+<h1>Step 3</h1>
+<p>
+In the wizard that appears, enter <strong>https://cmis.cloudoku.com/atom</strong> and your Google username/password:
+</p>
+<img src="../images/CmisSync-settings-Google-Drive.png"/>
 
+<h1>Step 4</h1>
+<p>
+The next screen shows your Google Drive folders.<br/>
+Choose the folder you want to sync:
+</p>
+<img src="../images/CmisSync-Google-Drive-folder-to-sync.png"/>
+
+<p>
+<strong>That's all!</strong><br/>
+CmisSync will now sync your Google Drive folder to your desktop, whenever you have an Internet connection.
+</p>
+<p>
+The Google Drive CMIS gateway is provided by third-party service <a href="http://www.cloudoku.com">Cloudoku</a>, it works for Google Apps accounts too.
+</p>
+<p>
+CmisSync does two-way sync, which means you can modify/add files.<br/>
+Should a conflict occur, you can handle it by choosing which version to keep.<br/>
+CmisSync is free and open source, programmers are very welcome!
+</p>
+<p>
+While syncing is also possible with the <a href="https://tools.google.com/dlpage/drive">Google client</a>, the CmisSync client has the advantage to be Open Source, offering peace of mind and more integration possibilities. CmisSync allows synchronization of multiple accounts, which is impossible with the Google client. There is also <a href="http://www.gdocsdrive.com">GDocsDrive</a> and <a href="https://www.insynchq.com">Insync</a>, but they are not free.
+</p>
 
       </section>
     </div>
