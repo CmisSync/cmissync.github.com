@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800">
 
-    <title>CmisSync</title>
+    <title>CmisSync: Dropbox-like offline sync for Alfresco</title>
   </head>
 
   <body>
@@ -25,7 +25,7 @@
           </div>
         <img src="../images/CmisSync_logo_70.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
           <h1 id="project_title"><a href="/">CmisSync</a></h1>
-          <h2 id="project_tagline">Dropbox-like sync for Google Drive!</h2>
+          <h2 id="project_tagline">Dropbox-like sync for Alfresco!</h2>
         </header>
     </div>
 
@@ -34,9 +34,9 @@
       <section id="main_content" class="inner">
 
 <p>
-<a href="/">CmisSync</a> allows you to keep in sync with your <a href="https://drive.google.com">Google Drive</a>, and read/edit the documents even when offline.
+<a href="/">CmisSync</a> allows you to keep in sync with your company's <a href="http://www.alfresco.com">Alfresco</a>, and read/edit the documents even when offline.
 </p>
-<img src="../images/CmisSync-sync-Google-Drive.png"/>
+<img src="../images/CmisSync-sync-Alfresco.png"/>
 
 <h1>Step 1</h1>
 
@@ -56,31 +56,36 @@ Click on the tray icon and select "Add a CMIS folder".
 
 <h1>Step 3</h1>
 <p>
-In the wizard that appears, enter <strong>https://cmis.cloudoku.com/atom</strong> and your Google username/password:
+A dialog appears. In the address field, copy-paste the URL of your Alfresco server, it is the web address you use to access Alfresco in your web browser:
 </p>
-<img src="../images/CmisSync-settings-Google-Drive.png"/>
+<img src="../images/CmisSync-Alfresco-copy-url.png"/>
+<p>
+Insert the <strong>https://</strong> prefix if it did not get copied.<br/>
+Then enter your Alfresco username/password.
+</p>
 
 <h1>Step 4</h1>
 <p>
-The next screen shows your Google Drive folders.<br/>
-Choose the folder you want to sync:
+The next screen shows the Alfresco folders.<br/>
+Choose the folder you want to sync.<br/>
+If you use Alfresco Share (like most companies), click "Sites", select your site, then click "documentLibrary".<br/>
 </p>
-<img src="../images/CmisSync-Google-Drive-folder-to-sync.png"/>
+<img src="../images/CmisSync-Alfresco-folder-to-sync.png"/>
 
 <p>
 <strong>That's all!</strong><br/>
-CmisSync will now sync your Google Drive folder to your desktop, whenever you have an Internet connection.
-</p>
-<p>
-The Google Drive CMIS gateway is provided by third-party service <a href="http://www.cloudoku.com">Cloudoku</a>, it works for Google Apps accounts too.
+CmisSync will now sync Alfresco to your desktop, whenever you have a network connection.
 </p>
 <p>
 CmisSync does two-way sync, which means you can modify/add files.<br/>
 Should a conflict occur, you can handle it by choosing which version to keep.<br/>
-CmisSync is free and open source, programmers are very welcome!
 </p>
-<p>
-While syncing is also possible with the <a href="https://tools.google.com/dlpage/drive">Google client</a>, the CmisSync client has the advantage to be Open Source, offering peace of mind and more integration possibilities. CmisSync allows synchronization of multiple accounts, which is impossible with the Google client. There is also <a href="http://www.gdocsdrive.com">GDocsDrive</a> and <a href="https://www.insynchq.com">Insync</a>, but they are not free.
+<span>While syncing is also possible with <a href="http://wiki.alfresco.com/wiki/Community_file_list_4.2.b">Alfresco Desktop Sync</a>, the CmisSync client has some advantages:</span>
+<ul>
+<li>Sync any Alfresco content, not just Alfresco Share Sites</li>
+<li>Based on CMIS, modern and more network-friendly than WebDAV</li>
+<li>Frequent releases based on users feedback</li>
+<li>Open Source (volunteers <a href="https://github.com/nicolas-raoul/CmisSync/wiki/Getting-started-with-CmisSync-development">welcome</a>!)</li>
 </p>
 
       </section>
