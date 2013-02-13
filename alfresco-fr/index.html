@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="CmisSync: Comme Dropbox pour la gestion électronique de documents" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800">
+
+    <title>CmisSync: Comme Dropbox pour la gestion électronique de documents</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <div id="forkme_banner" href="https://github.com/nicolas-raoul/CmisSync">
+            <a href="http://cmissync.googlecode.com/files/CmisSync_0.3.9.msi">Télécharger</a> ・ 
+            <a href="https://github.com/nicolas-raoul/CmisSync/wiki/Getting-started-with-CmisSync-development">Source</a> ・ 
+            <a href="http://groups.google.com/group/cmissync">Forum</a> ・
+            <a href="https://twitter.com/CmisSync1">Twitter</a>
+          </div>
+        <img src="../images/CmisSync_logo_70.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
+          <h1 id="project_title"><a href="/">CmisSync</a></h1>
+          <h2 id="project_tagline">Comme un client Dropbox pour Alfresco !</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<p>
+<a href="/">CmisSync</a> vous permet de synchroniser le serveur <a href="http://www.alfresco.com">Alfresco</a> avec votre ordinateur local, et de lire/modifier vos documents même hors-ligne:
+</p>
+<img src="../images/CmisSync-sync-Alfresco.png"/>
+
+<hr/>
+
+<h1>Étape 1</h1>
+
+<p>
+Installez <a href="http://go.microsoft.com/fwlink/?LinkId=225704">.NET</a>, puis <a href="http://cmissync.googlecode.com/files/CmisSync_0.3.9.msi">CmisSync</a>.
+</p>
+
+<h1>Étape 2</h1>
+<p>
+Lancez CmisSync.<br/>
+Après quelques écrans de bienvenue, CmisSync tourne sous forme d'une icone dans la barre des tâches:
+</p>
+<img src="../images/CmisSync-tray-icon-arrow.png"/>
+<p>
+Cliquez sur l'icone et choisissez "Ajouter un dossier distant...".
+</p>
+
+<h1>Étape 3</h1>
+<p>
+Une fenêtre apparaît. Dans le champ du milieu, copiez-collez l'adresse de votre serveur Alfresco, c'est l'adresse que vous utilisez pour accéder à l'interface web de Alfresco:
+</p>
+<img src="../images/CmisSync-Alfresco-copy-url.png"/>
+<p>
+Insérez le préfixe <strong>https://</strong> si il a disparu lors du copier-coller.
+Entrez ensuite votre nom d'utilisateur et mot de passe Alfresco.
+</p>
+
+<h1>Étape 4</h1>
+<p>
+L'écran suivant montre les répertoires d'Alfresco.<br/>
+Choisissez le répertoire que vous voulez synchroniser:<br/>
+Si vous utilisez Alfresco Share (comme la plupart des entreprises), cliquez "Sites", sélectionnez votre site, puis cliquez sur "documentLibrary".
+</p>
+<img src="../images/CmisSync-Alfresco-folder-to-sync.png"/>
+
+<p>
+<strong>Et voilà !</strong><br/>
+Désormais CmisSync synchronise Nuxeo avec votre PC, automatiquement.
+</p>
+<p>
+CmisSync est bidirectionnel, vous pouvez ajouter/modifier/supprimer des fichiers/répertoires.<br/>
+Si un conflit venait à arriver (en pratique ça n'arrive presque jamais), vous pouvez choisir quelle version garder, et une sauvegarde est faite.
+</p>
+<span>Bien que synchroniser soit aussi possible avec <a href="http://wiki.alfresco.com/wiki/Community_file_list_4.2.b">Alfresco Desktop Sync</a>, CmisSync a quelques avantages:</span>
+<ul>
+<li>Synchronisez n'importe quel contenu Alfresco, pas seulement ce qui se trouve dans un site Alfresco Share</li>
+<li>Basé sur CMIS, un protocole plus moderne et efficient que WebDAV</li>
+<li>Releases fréquentes basées sur le feedback des utilisateurs</li>
+<li>Open Source (volontaires <a href="https://github.com/nicolas-raoul/CmisSync/wiki/Getting-started-with-CmisSync-development">bienvenus</a>!)</li>
+</ul>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p><a href="mailto:cmissync@aegif.jp">CmisSync@aegif.jp</a></p>
+      </footer>
+    </div>
+
+<!-- Google Analytics begin -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-23999853-3");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+<!-- Google Analytics end -->
+
+  </body>
+</html>
