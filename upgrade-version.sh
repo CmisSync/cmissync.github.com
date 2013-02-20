@@ -1,5 +1,7 @@
 find . -name "*.html" -print | xargs sed -i 's/0\.4\.1/0\.4\.2/g'
 
-git add alfresco/index.html google-drive/index.html index.html nuxeo/index.html upgrade-version.sh
+# Push all HTML files
+git ls-files . | grep '\.html$' | xargs git add
+
 git commit -m "Bumped version"
 git push
