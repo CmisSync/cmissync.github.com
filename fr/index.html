@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="CmisSync: It's like Dropbox for Enterprise Content Management" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800">
+
+    <title>CmisSync</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <div id="forkme_banner" href="https://github.com/nicolas-raoul/CmisSync">
+            <a href="https://code.google.com/p/cmissync/downloads">Download</a> ・ 
+            <a href="https://github.com/nicolas-raoul/CmisSync/wiki/Getting-started-with-CmisSync-development">Source</a> ・ 
+            <a href="http://groups.google.com/group/cmissync">Forum</a> ・
+            <a href="https://twitter.com/CmisSync1">Twitter</a>
+          </div>
+        <img src="../images/CmisSync_logo_70.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
+          <h1 id="project_title"><a href="/">CmisSync</a></h1>
+          <h2 id="project_tagline">Comme Dropbox pour votre serveur de fichiers !</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<p>
+<strong>CmisSync</strong> vous permet de rester synchronisé avec votre serveur de fichiers, et lire/modifier vos documents même sans connexion Internet:
+</p>
+<img src="../images/CmisSync-concept.png" alt="CmisSync: Synchronize between your company's file server and your computer"/>
+<p style="font-style: italic">
+Besoin de lire un compte-rendu dans l'avion ?<br/>
+Besoin de vérifier la liste des prix, et pas d'Internet dans la salle de réunion chez le client ?<br/>
+&rarr; <strong>Pas de problème, les derniers fichiers sont déjà sur votre laptop.</strong>
+</p>
+<p>
+Bonus: Vos documents s'ouvre plus vite, pas de latence réseau.<br/>
+C'est comme un Dropbox pour la GED (Gestion électronique des documents) !
+</p>
+<span>Pourquoi pas juste Dropbox ?</span><br/>
+<ul>
+<li>Vous avez un serveur de fichiers, utilisez-le. Duplication=cauchemar de versions.</li>
+<li>Dropbox est très cher pour les gros volumes.</li>
+<li>Ne confiez pas vos données à des tiers.</li>
+</ul>
+<p>
+<a href="http://cmissync.googlecode.com/files/CmisSync_0.4.2.msi">&rarr;Télécharger&larr;</a> (Disponible sur Windows 7/8. Vista, Mac, Linux en cours de portage)<br/>
+<small>(<a href="http://go.microsoft.com/fwlink/?LinkId=225704">.NET Framework 4.5</a> nécessaire)</small>
+</p>
+
+<h3>Features</h3>
+
+<ul>
+<li>Two-way sync</li>
+<li>Conflict handling</li>
+<li>Easy to install</li>
+<li>Compatible with <a href="http://en.wikipedia.org/wiki/Content_Management_Interoperability_Services#CMIS_Servers">any CMIS-compliant server</a></li>
+<li>Open source</li>
+</ul>
+
+<h3>Screenshots</h3>
+
+<img src="../images/CmisSync-menu.png" alt="Screenshot of CmisSync: Menu"/>
+<img src="../images/CmisSync-add-folder.png" alt="Screenshot of CmisSync: Syncing a CMIS folder"/>
+<img src="../images/CmisSync-select-cmis-folder.png" alt="Screenshot of CmisSync: Selecting which CMIS folder to synchronize"/>
+
+<!--
+<p>Tutorial video:</p>
+<iframe width="550" height="412" src="http://www.youtube.com/embed/EMx7TW9_XaQ" frameborder="0" allowfullscreen></iframe>
+-->
+
+<h3>Tutorials</h3>
+
+<p>CmisSync works with any CMIS-compliant server, but we created tutorials for the most populars:</p>
+
+<ul>
+<li><a href="../alfresco">Offline desktop sync for Alfresco</a> (<a href="../alfresco-fr">French</a>, <a href="../alfresco-ja">Japanese</a>)</li>
+<li><a href="../nuxeo">Offline desktop sync for Nuxeo</a> (<a href="../nuxeo-fr">French</a>)</li>
+<li><a href="../sharepoint">Offline desktop sync for SharePoint</a></li>
+<li><a href="../google-drive">Offline desktop sync for Google Drive</a></li>
+</ul>
+
+<h3>CmisSync is Open Source, get involved!</h3>
+
+<p>CmisSync is Open Source software and licensed under the GNU-GPLv3. You are welcome to change and redistribute it, see <a href="https://raw.github.com/nicolas-raoul/CmisSync/master/legal/LICENSE.txt">the license</a> for details.</p>
+
+<p>CmisSync is currently mostly developed by <a href="http://aegif.jp">Aegif</a>, but all contributions are welcome!</p>
+
+<p>
+Everybody can help:<br/>
+<strong>Testers</strong>: <a href="http://cmissync.googlecode.com/files/CmisSync_0.4.2.msi">Install CmisSync</a> and <a href="https://github.com/nicolas-raoul/CmisSync/issues">report bugs</a>,<br/>
+<strong>Developers</strong>: <a href="https://github.com/nicolas-raoul/CmisSync/wiki/Getting-started-with-CmisSync-development">Get the source</a> and choose from the <a href="https://github.com/nicolas-raoul/CmisSync/issues">issue tracker</a>, thanks a lot!
+<strong>Anyone</strong>: Translate CmisSync into your language. CmisSync is already available in English, French, Japanese, Spanish, Ukrainian.
+</p>
+
+<h3>About CMIS</h3>
+
+<p>
+CMIS (Content Management Interoperability Services) is an OASIS standard that allows any ECM client to communicate with any ECM repository (a bit like the HTML standard allows all web browsers to communicate with all web servers).
+CMIS is backed by all major content management vendors, and is supported by the following ECM servers:
+<a href="http://www.alfresco.com">Alfresco</a>,
+<a href="http://www.adobe.com/solutions/web-experience-management.html">Adobe Experience Manager</a>,
+<a href="http://www.emc.com/enterprise-content-management/index.htm">EMC Documentum</a>,
+<a href="http://www.ibm.com/software/data/content-management/filenet-content-manager/">IBM FileNet</a>,
+<a href="http://www-01.ibm.com/software/lotus/">IBM Lotus</a>,
+<a href="http://www.exoplatform.com">eXo Platform</a>,
+<a href="http://www.interwoven.com">Interwoven</a>,
+<a href="http://www.knowledgetree.com">KnowledgeTree</a>,
+<a href="http://www.magnolia-cms.com">Magnolia</a>,
+<a href="http://sharepoint.microsoft.com">Microsoft SharePoint</a>,
+<a href="http://nemakiware.bitbucket.org">NemakiWare</a>,
+<a href="http://www.nuxeo.com">Nuxeo</a>,
+<a href="http://www.opentext.com">OpenText</a>
+and <a href="http://en.wikipedia.org/wiki/Content_Management_Interoperability_Services#CMIS_Servers">many others</a>.
+</p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p><a href="mailto:cmissync@aegif.jp">CmisSync@aegif.jp</a></p>
+      </footer>
+    </div>
+
+<!-- Google Analytics begin -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-23999853-3");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+<!-- Google Analytics end -->
+
+  </body>
+</html>
