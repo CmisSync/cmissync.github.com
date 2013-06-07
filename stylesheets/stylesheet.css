@@ -285,7 +285,7 @@ Full-Width Styles
   z-index: 10;
   padding: 10px 10px 10px 10px;
   color: #343434;
-  background: /*url('../images/blacktocat.png')*/ #e3af1b no-repeat 95% 50%;
+  background: #d8380d no-repeat 95% 50%;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
@@ -380,7 +380,7 @@ Full-Width Styles
 }
 
 #footer_wrap a {
-  color: #e3af1b;
+  color: #e8380d;
   text-decoration:underline
 }
 
