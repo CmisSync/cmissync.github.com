@@ -1,4 +1,4 @@
-find . -name "*.html" -print | xargs sed -i 's/0\.4\.26/0\.4\.25/g'
+find . -name "*.html" -print | xargs sed -i 's/0\.4\.25/0\.4\.26/g'
 
 # Push all HTML files, and self
 git ls-files . | grep '\.html$' | xargs git add
