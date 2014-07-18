@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <title>CmisCompat: Is your ECM server really CMIS-compatible?</title>
+    <meta name="description" content="Most ECM servers claim CMIS compatibility… See how well they actually implement CMIS. Detailed results for each product." />
+    <meta name="keywords" content="CMIS,ECM,Content Management,standard,interoperability,Alfresco,Nuxeo,FileNet,SharePoint" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://cmissync.org/CmisCompat" />
+    <meta property="og:image" content="http://cmissync.com/images/og_img.png" />
+    <meta property="og:site_name" content="CmisSync" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,800">
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <div id="forkme_banner">
+            <a href="http://docs.oasis-open.org/cmis/CMIS/v1.0/cmis-spec-v1.0.html">CMIS 1.0</a> ・ 
+            <a href="http://docs.oasis-open.org/cmis/CMIS/v1.1/cs01/CMIS-v1.1-cs01.html">CMIS 1.1</a> ・ 
+            <a href="http://chemistry.apache.org/java/developing/tools/dev-tools-workbench.html">CMIS Workbench</a>
+          </div>
+        <img src="cmis-80x80.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
+          <h1 id="project_title"><a href="..">CmisCompat</a></h1>
+          <h2 id="project_tagline">Is your ECM server really CMIS-compatible?</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<p>
+<table>
+<tr>
+<th>Product</th>
+<th>Version</th>
+<th>Score (*)</th>
+<th>CMIS version</th>
+<th>URL</th>
+<th>Workbench version</th>
+<th>OK</th>
+<th>Skipped</th>
+<th>Warning</th>
+<th>Failure</th>
+<th>Exception</th>
+<th>Details</th>
+<th>Test date</th>
+</tr>
+<tr>
+<td><a href="http://NemakiWare.com">NemakiWare</a></td>
+<td>Live demo</td>
+<td>36</td>
+<td>CMIS 1.1</td>
+<td><a href="http://trial.nemakiware.com:8080/nemakiware/atom/bedroom">[↗]</a></td>
+<td>0.11.0</td>
+<td>36</td>
+<td>93</td>
+<td>36</td>
+<td>3</td>
+<td>0</td>
+<td><a href="nemakiware-live-demo-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://alfresco.com">Alfresco</a></td>
+<td>Community 5.0.a</td>
+<td>29</td>
+<td>CMIS 1.0</td>
+<td><a href="http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.0/atom">[↗]</a></td>
+<td>0.11.0</td>
+<td>29</td>
+<td>10</td>
+<td>65</td>
+<td>25</td>
+<td>0</td>
+<td><a href="alfresco-community-5-cmis1.0-atompub-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://alfresco.com">Alfresco</a></td>
+<td>Community 5.0.a</td>
+<td>28</td>
+<td>CMIS 1.1</td>
+<td><a href="http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom">[↗]</a></td>
+<td>0.11.0</td>
+<td>30</td>
+<td>7</td>
+<td>85</td>
+<td>132</td>
+<td>2</td>
+<td><a href="alfresco-community-5-cmis1.1-atompub-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://www.exoplatform.com">eXo Platform</a></td>
+<td>Live demo</td>
+<td>26</td>
+<td>CMIS 1.0</td>
+<td><a href="http://try.exoplatform.com/rest/private/cmisatom/">[↗]</a></td>
+<td>0.11.0</td>
+<td>30</td>
+<td>15</td>
+<td>656</td>
+<td>4893</td>
+<td>4</td>
+<td><a href="exo-platform-live-demo-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://www.nuxeo.com">Nuxeo</a></td>
+<td>5.9.4</td>
+<td>24</td>
+<td>CMIS 1.1</td>
+<td><a href="http://192.168.0.107/nuxeo/atom/cmis">[↗]</a></td>
+<td>0.11.0</td>
+<td>34</td>
+<td>11</td>
+<td>139</td>
+<td>695</td>
+<td>10</td>
+<td><a href="nuxeo-5.9.4-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://www-03.ibm.com/software/products/en/filecontmana">IBM FileNet P8 Content Manager</a></td>
+<td>5.2.0.1</td>
+<td>-18</td>
+<td>CMIS 1.0</td>
+<td><a href="http://localhost:9080/fncmis_war/atom">[↗]</a></td>
+<td>0.11.0</td>
+<td>28</td>
+<td>6</td>
+<td>4086</td>
+<td>1</td>
+<td>46</td>
+<td><a href="ibm-filenet-p8-content-manager-5.2.0.1-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+</table>
+
+(*) Higher score is better.
+Score is <a href="https://github.com/CmisSync/cmissync.github.com/tree/master/CmisCompat/score.sh">calculated</a> as the sum of the number of OKs, minus the number of unexpected exceptions.
+The score formula needs to be made smarter, ideas and implementations are welcome.
+</p>
+
+<h1>Test procedure</h1>
+
+<ol>
+<li>Download the latest <a href="http://chemistry.apache.org/java/download.html">Apache Chemistry CMIS Workbench</a></li>
+<li>Run CMIS Workbench and log into your ECM server. If given a choice, choose the repository that typically contains most project documents</li>
+<li>Press the TCK button, let every option at their default value, and press run</li>
+<li>The tests will run for a few minutes, and at the end a results dialog will show up</li>
+<li>Select HTML, a browser window will open showing the details
+<li>Press CTRL-S to save the HTML
+<li>Send the HTML file to <a href="mailto:CmisSync@aegif.jp">our email address</a> or send a pull request to <a href="https://github.com/CmisSync/cmissync.github.com/tree/master/CmisCompat">our Github</a>. Don't forget to send us the server version, the version of CMIS Workbench, and the CMIS URL address used.</li>
+</ol>
+
+<h1>Contribute your results</h1>
+
+<p>We don't have access to all ECM products. Please help us by testing the products you have access to. The test procedure is detailed in the paragraph above. Thanks!</p>
+
+<p>
+This page is a collaborative effort, hosted on Github.
+Don't hesitate to join us and <a href="https://github.com/CmisSync/cmissync.github.com/tree/master/CmisCompat">send us pull requests</a>.
+Our goal is to improve ECM interoperability by forcing all ECM vendors to make sure their CMIS implementation is correct.
+</p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Creative Commons CC-BY-SA - <a href="http://CmisSync.com">Aegif</a></p>
+      </footer>
+    </div>
+
+<!-- Google Analytics begin -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-23999853-3");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+<!-- Google Analytics end -->
+
+  </body>
+</html>
