@@ -27,7 +27,7 @@
             <a href="http://chemistry.apache.org/java/developing/tools/dev-tools-workbench.html">CMIS Workbench</a>
           </div>
         <img src="cmis-80x80.png" style="width:80px;height:80px;position:absolute;top:70px;left:-90px;"/>
-          <h1 id="project_title"><a href="..">CmisCompat</a></h1>
+          <h1 id="project_title"><a href="http://cmissync.org/CmisCompat/">CmisCompat</a></h1>
           <h2 id="project_tagline">Is your ECM server really CMIS-compatible?</h2>
         </header>
     </div>
@@ -57,23 +57,6 @@
 </tr>
 <tr>
 <td>#1</td>
-<td><a href="http://www-03.ibm.com/software/products/en/filecontmana">IBM FileNet P8 Content Manager</a></td>
-<td>5.1.1</td>
-<td>308</td>
-<td>CMIS 1.0</td>
-<td>11</td>
-<td><a href="http://localhost:9080/fncmis/resources/Service">[↗]</a></td>
-<td>0.11.0</td>
-<td>29</td>
-<td>6</td>
-<td>3428</td>
-<td>0</td>
-<td>1</td>
-<td><a href="ibm-filenet-p8-content-manager-5.1.1-20140722.html">Full report</a></td>
-<td>2014-07-18</td>
-</tr>
-<tr>
-<td>#2</td>
 <td><a href="http://NemakiWare.com">NemakiWare</a></td>
 <td>Live demo</td>
 <td>252</td>
@@ -87,6 +70,23 @@
 <td>3</td>
 <td>0</td>
 <td><a href="nemakiware-live-demo-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td>#2</td>
+<td><a href="http://www.nuxeo.com">Nuxeo</a></td>
+<td>5.9.4</td>
+<td>240</td>
+<td>CMIS 1.1</td>
+<td>10</td>
+<td><a href="http://localhost/nuxeo/atom/cmis">[↗]</a></td>
+<td>0.11.0</td>
+<td>34</td>
+<td>11</td>
+<td>139</td>
+<td>695</td>
+<td>10</td>
+<td><a href="nuxeo-5.9.4-20140718.html">Full report</a></td>
 <td>2014-07-18</td>
 </tr>
 <tr>
@@ -108,40 +108,23 @@
 </tr>
 <tr>
 <td>#4</td>
-<td><a href="http://alfresco.com">Alfresco</a></td>
-<td>Community 5.0.a</td>
-<td>224</td>
-<td>CMIS 1.1</td>
-<td>8</td>
-<td><a href="http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom">[↗]</a></td>
+<td><a href="http://www-03.ibm.com/software/products/en/filecontmana">IBM FileNet P8 Content Manager</a></td>
+<td>5.2.0.2</td>
+<td>220</td>
+<td>CMIS 1.0</td>
+<td>10</td>
+<td><a href="http://localhost:9080/fncmis/resources/Service">[↗]</a></td>
 <td>0.11.0</td>
-<td>30</td>
+<td>24</td>
 <td>7</td>
-<td>85</td>
-<td>132</td>
+<td>4000</td>
+<td>28</td>
 <td>2</td>
-<td><a href="alfresco-community-5-cmis1.1-atompub-20140718.html">Full report</a></td>
+<td><a href="ibm-filenet-p8-content-manager-5.2.0.2-20140819.html">Full report</a></td>
 <td>2014-07-18</td>
 </tr>
 <tr>
 <td>#5</td>
-<td><a href="http://www.nuxeo.com">Nuxeo</a></td>
-<td>5.9.4</td>
-<td>240</td>
-<td>CMIS 1.1</td>
-<td>10</td>
-<td><a href="http://localhost/nuxeo/atom/cmis">[↗]</a></td>
-<td>0.11.0</td>
-<td>34</td>
-<td>11</td>
-<td>139</td>
-<td>695</td>
-<td>10</td>
-<td><a href="nuxeo-5.9.4-20140718.html">Full report</a></td>
-<td>2014-07-18</td>
-</tr>
-<tr>
-<td>#6</td>
 <td><a href="http://www.exoplatform.com">eXo Platform</a></td>
 <td>Live demo</td>
 <td>182</td>
@@ -158,7 +141,7 @@
 <td>2014-07-18</td>
 </tr>
 <tr>
-<td>#7</td>
+<td>#6</td>
 <td><a href="http://www.emc.com/enterprise-content-management/documentum-platform.htm">EMC Documentum</a></td>
 <td>6.7.1</td>
 <td>171</td>
@@ -185,7 +168,7 @@ The score formula needs to be made smarter, ideas and implementations are welcom
 
 <ol>
 <li>Download the latest <a href="http://chemistry.apache.org/java/download.html">Apache Chemistry CMIS Workbench</a></li>
-<li>Run CMIS Workbench and log into your ECM server. If given a choice, choose the repository that typically contains most project documents</li>
+<li>Run CMIS Workbench and log into your ECM server (AtomPub). If given a choice, choose the repository that typically contains most project documents</li>
 <li>Press the TCK button, let every option at their default value, and press run</li>
 <li>The tests will run for a few minutes, and at the end a results dialog will show up</li>
 <li>Select HTML, a browser window will open showing the details
@@ -204,6 +187,74 @@ Our goal is to improve ECM interoperability by forcing all ECM vendors to make s
 Like <a href="https://en.wikipedia.org/wiki/Acid3">Acid</a> did for HTML/CSS.
 </p>
 
+<h1>Alternate versions</h1>
+<p>For each product, in the ranking we only keep the most recent released version. If there are several editions, or several CMIS version URLs, we only keep the best score
+<table>
+<tr>
+<th>Product</th>
+<th>Version</th>
+<th>Score</th>
+<th>CMIS version</th>
+<th>Capabilities</th>
+<th>URL</th>
+<th>Workbench version</th>
+<th>OK</th>
+<th>Skipped</th>
+<th>Warning</th>
+<th>Failure</th>
+<th>Exception</th>
+<th>Details</th>
+<th>Test date</th>
+</tr>
+<tr>
+<td><a href="http://alfresco.com">Alfresco</a></td>
+<td>Community 5.0.a</td>
+<td>224</td>
+<td>CMIS 1.1</td>
+<td>8</td>
+<td><a href="http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/atom">[↗]</a></td>
+<td>0.11.0</td>
+<td>30</td>
+<td>7</td>
+<td>85</td>
+<td>132</td>
+<td>2</td>
+<td><a href="alfresco-community-5-cmis1.1-atompub-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://www-03.ibm.com/software/products/en/filecontmana">IBM FileNet P8 Content Manager</a></td>
+<td>5.1.1</td>
+<td>308</td>
+<td>CMIS 1.0</td>
+<td>11</td>
+<td><a href="http://localhost:9080/fncmis/resources/Service">[↗]</a></td>
+<td>0.11.0</td>
+<td>29</td>
+<td>6</td>
+<td>3428</td>
+<td>0</td>
+<td>1</td>
+<td><a href="ibm-filenet-p8-content-manager-5.1.1-20140722.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+<tr>
+<td><a href="http://www-03.ibm.com/software/products/en/filecontmana">IBM FileNet P8 Content Manager</a></td>
+<td>5.2.0.1</td>
+<td>-198</td>
+<td>CMIS 1.0</td>
+<td>11</td>
+<td><a href="http://localhost:9080/fncmis/resources/Service">[↗]</a></td>
+<td>0.11.0</td>
+<td>28</td>
+<td>6</td>
+<td>4086</td>
+<td>1</td>
+<td>46</td>
+<td><a href="ibm-filenet-p8-content-manager-5.2.0.1-20140718.html">Full report</a></td>
+<td>2014-07-18</td>
+</tr>
+</table>
       </section>
     </div>
 

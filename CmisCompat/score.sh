@@ -1,6 +1,6 @@
 TCK=$1
 
-INFO=`grep "\"tckResultINFO\"" $TCK | wc -l`
+#INFO=`grep "\"tckResultINFO\"" $TCK | wc -l`
 OK=`grep "\"tckResultOK\"" $TCK | wc -l`
 SKIPPED=`grep "\"tckResultSKIPPED\"" $TCK | wc -l`
 WARNING=`grep "\"tckResultWARNING\"" $TCK | wc -l`
@@ -12,7 +12,7 @@ let SCORE=" ($OK - $EXCEPTION) * $CAPABILITIES "
 
 echo "SCORE: $SCORE"
 echo "CAPABILITIES: $CAPABILITIES"
-echo "INFO: $INFO"
+#echo "INFO: $INFO"
 echo "OK: $OK"
 echo "SKIPPED: $SKIPPED"
 echo "WARNING: $WARNING"
