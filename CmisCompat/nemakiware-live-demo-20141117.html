@@ -1,0 +1,1099 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<title>OpenCMIS TCK Report</title>
+<style type="text/css">
+body { font-family: sans-serif; }
+.tckResultINFO { margin-left: 10px; margin-right: 10px; padding: 2px; }
+.tckResultSKIPPED { margin-left: 10px; margin-right: 10px; padding: 2px; background-color: #FFFFFF; }
+.tckResultOK { margin-left: 10px; margin-right: 5px; padding: 2px; background-color: #00FF00; }
+.tckResultWARNING { margin-left: 10px; margin-right: 10px; padding: 2px; background-color: #FFFF00; }
+.tckResultFAILURE { margin-left: 10px; margin-right: 10px; padding: 2px; background-color: #FF6000; }
+.tckResultUNEXPECTED_EXCEPTION { margin-left: 10px; margin-right: 10px; padding: 2px; background-color: #FF0000; }
+.tckTraceLink { cursor: pointer; text-decoration: underline; }
+.tckTrace { margin-left: 10px; margin-right: 10px; padding: 2px; border:2px solid #777777; background-color: #DDDDDD; }
+</style>
+<script type="text/javascript">
+function tckToggleDisplay(id) {
+(function(style) { style.display = style.display === 'none' ? '' : 'none'; })(document.getElementById(id).style);
+}
+</script>
+</head><body>
+<h1>OpenCMIS TCK Report</h1>
+Mon Nov 17 17:32:52 JST 2014
+
+<h2>Parameters</h2>
+<table>
+<tbody><tr><td>cmis.workbench.folder.filter</td><td>cmis:isVersionSeriesCheckedOut,cmis:contentStreamLength,cmis:lastModifiedBy,cmis:objectTypeId,cmis:versionSeriesCheckedOutId,cmis:createdBy,cmis:name,cmis:contentStreamMimeType,cmis:objectId,cmis:creationDate,cmis:lastModificationDate,cmis:contentStreamFileName</td></tr>
+<tr><td>cmis.workbench.folder.includeAcls</td><td>false</td></tr>
+<tr><td>cmis.workbench.folder.includeAllowableActions</td><td>false</td></tr>
+<tr><td>cmis.workbench.folder.includePolicies</td><td>false</td></tr>
+<tr><td>cmis.workbench.folder.includeRelationships</td><td>none</td></tr>
+<tr><td>cmis.workbench.folder.maxItemsPerPage</td><td>10000</td></tr>
+<tr><td>cmis.workbench.folder.orderBy</td><td></td></tr>
+<tr><td>cmis.workbench.folder.renditionFilter</td><td>cmis:none</td></tr>
+<tr><td>cmis.workbench.object.filter</td><td>*</td></tr>
+<tr><td>cmis.workbench.object.includeAcls</td><td>true</td></tr>
+<tr><td>cmis.workbench.object.includeAllowableActions</td><td>true</td></tr>
+<tr><td>cmis.workbench.object.includePolicies</td><td>true</td></tr>
+<tr><td>cmis.workbench.object.includeRelationships</td><td>both</td></tr>
+<tr><td>cmis.workbench.object.maxItemsPerPage</td><td>1000</td></tr>
+<tr><td>cmis.workbench.object.orderBy</td><td></td></tr>
+<tr><td>cmis.workbench.object.renditionFilter</td><td>*</td></tr>
+<tr><td>cmis.workbench.version.filter</td><td>cmis:isLatestMajorVersion,cmis:contentStreamLength,cmis:objectTypeId,cmis:name,cmis:contentStreamMimeType,cmis:objectId,cmis:isMajorVersion,cmis:contentStreamFileName,cmis:isLatestVersion,cmis:versionLabel</td></tr>
+<tr><td>cmis.workbench.version.includeAcls</td><td>false</td></tr>
+<tr><td>cmis.workbench.version.includeAllowableActions</td><td>false</td></tr>
+<tr><td>cmis.workbench.version.includePolicies</td><td>false</td></tr>
+<tr><td>cmis.workbench.version.includeRelationships</td><td>none</td></tr>
+<tr><td>cmis.workbench.version.maxItemsPerPage</td><td>10000</td></tr>
+<tr><td>cmis.workbench.version.renditionFilter</td><td>cmis:none</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.atompub.url</td><td>http://localhost:7070/core/atom/bedroom</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.auth.classname</td><td>org.apache.chemistry.opencmis.client.bindings.spi.StandardAuthenticationProvider</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.auth.http.basic</td><td>true</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.auth.soap.usernametoken</td><td>false</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.cache.links.size</td><td>400</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.cache.repositories.size</td><td>10</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.cache.types.size</td><td>100</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.clientcompression</td><td>false</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.compression</td><td>true</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.cookies</td><td>true</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.httpinvoker.classname</td><td>org.apache.chemistry.opencmis.client.bindings.spi.http.DefaultHttpInvoker</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.spi.classname</td><td>org.apache.chemistry.opencmis.client.bindings.spi.atompub.CmisAtomPubSpi</td></tr>
+<tr><td>org.apache.chemistry.opencmis.binding.spi.type</td><td>atompub</td></tr>
+<tr><td>org.apache.chemistry.opencmis.cache.types.classname</td><td>org.apache.chemistry.opencmis.client.bindings.impl.TypeDefinitionCacheImpl</td></tr>
+<tr><td>org.apache.chemistry.opencmis.password</td><td>*****</td></tr>
+<tr><td>org.apache.chemistry.opencmis.session.repository.id</td><td>bedroom2</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.default.documentType</td><td>cmis:document</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.default.folderType</td><td>cmis:folder</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.default.itemType</td><td>cmis:item</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.default.relationshipType</td><td>cmis:relationship</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.default.secondaryType</td><td>cmis:secondary</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.default.testFolderParent</td><td>/</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.revision</td><td>1617572</td></tr>
+<tr><td>org.apache.chemistry.opencmis.tck.timestamp</td><td>Version: 0.12.0 / Revision: 1617572 / Build: 2014-08-12T15:42:51-0400
+</td></tr>
+<tr><td>org.apache.chemistry.opencmis.user</td><td>admin</td></tr>
+</tbody></table>
+
+<h2>Groups</h2>
+
+<hr>
+<h3>Basics Test Group (ATOMPUB)</h3>
+
+<p><i>Basic tests.</i></p>
+
+<h4>Security Test (ATOMPUB) (126 ms)</h4>
+
+<p><i>Checks if HTTPS is used.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Binding: ATOMPUB (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/SecurityTest.java?view=markup&amp;revision=1617572#l50" target="_blank">SecurityTest.java:50</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace1');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace1" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.SecurityTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/SecurityTest.java?view=markup&amp;revision=1617572#l50" target="_blank">SecurityTest.java:50</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultWARNING">
+<b>WARNING</b>: HTTPS is not used. Credentials might be transferred as plain text! (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/SecurityTest.java?view=markup&amp;revision=1617572#l57" target="_blank">SecurityTest.java:57</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace2');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace2" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.SecurityTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/SecurityTest.java?view=markup&amp;revision=1617572#l57" target="_blank">SecurityTest.java:57</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Repository Info Test (ATOMPUB) (101 ms)</h4>
+
+<p><i>Gets and checks the repository info.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Repository ID: bedroom2 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l61" target="_blank">RepositoryInfoTest.java:61</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace3');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace3" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l61" target="_blank">RepositoryInfoTest.java:61</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Repository name: bedroom2 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l69" target="_blank">RepositoryInfoTest.java:69</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace4');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace4" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l69" target="_blank">RepositoryInfoTest.java:69</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Repository description: NemakiWare, Lightweight CMIS Server (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l77" target="_blank">RepositoryInfoTest.java:77</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace5');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace5" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l77" target="_blank">RepositoryInfoTest.java:77</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Vendor name: aegif (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l85" target="_blank">RepositoryInfoTest.java:85</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace6');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace6" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l85" target="_blank">RepositoryInfoTest.java:85</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Product name: NemakiWare (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l93" target="_blank">RepositoryInfoTest.java:93</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace7');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace7" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l93" target="_blank">RepositoryInfoTest.java:93</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Product version: 1.1 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l101" target="_blank">RepositoryInfoTest.java:101</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace8');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace8" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l101" target="_blank">RepositoryInfoTest.java:101</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: CMIS Version Supported: 1.1 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l106" target="_blank">RepositoryInfoTest.java:106</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace9');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace9" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l106" target="_blank">RepositoryInfoTest.java:106</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Root folder ID: / (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l115" target="_blank">RepositoryInfoTest.java:115</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace10');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace10" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l115" target="_blank">RepositoryInfoTest.java:115</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Thin client URI: $cmis.repository.main.thinClientUri (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l120" target="_blank">RepositoryInfoTest.java:120</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace11');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace11" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l120" target="_blank">RepositoryInfoTest.java:120</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultWARNING">
+<b>WARNING</b>: Unable to connect to thin client '$cmis.repository.main.thinClientUri': no protocol: $cmis.repository.main.thinClientUri (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l135" target="_blank">RepositoryInfoTest.java:135</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace12');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace12" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l135" target="_blank">RepositoryInfoTest.java:135</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Principal ID anonymous: anonymous (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l143" target="_blank">RepositoryInfoTest.java:143</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace13');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace13" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l143" target="_blank">RepositoryInfoTest.java:143</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Principal ID anyone: GROUP_EVERYONE (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l148" target="_blank">RepositoryInfoTest.java:148</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace14');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace14" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l148" target="_blank">RepositoryInfoTest.java:148</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Latest change log token: 4 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l153" target="_blank">RepositoryInfoTest.java:153</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace15');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace15" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l153" target="_blank">RepositoryInfoTest.java:153</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Changes Incomplete: true (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l158" target="_blank">RepositoryInfoTest.java:158</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace16');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace16" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l158" target="_blank">RepositoryInfoTest.java:158</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Changes on type: [CMIS_DOCUMENT, CMIS_FOLDER] (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l163" target="_blank">RepositoryInfoTest.java:163</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace17');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace17" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l163" target="_blank">RepositoryInfoTest.java:163</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: No repository features exposed. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l174" target="_blank">RepositoryInfoTest.java:174</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace18');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace18" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l174" target="_blank">RepositoryInfoTest.java:174</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+<div class="tckResultINFO">
+<b>INFO</b>: Object is null!<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: ACL capability: MANAGE (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l193" target="_blank">RepositoryInfoTest.java:193</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace20');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace20" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l193" target="_blank">RepositoryInfoTest.java:193</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Changes capability: OBJECTIDSONLY (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l198" target="_blank">RepositoryInfoTest.java:198</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace21');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace21" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l198" target="_blank">RepositoryInfoTest.java:198</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Content stream updates capability: ANYTIME (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l203" target="_blank">RepositoryInfoTest.java:203</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace22');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace22" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l203" target="_blank">RepositoryInfoTest.java:203</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Get descendants capability: true (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l208" target="_blank">RepositoryInfoTest.java:208</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace23');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace23" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l208" target="_blank">RepositoryInfoTest.java:208</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Get folder tree capability: true (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l213" target="_blank">RepositoryInfoTest.java:213</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace24');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace24" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l213" target="_blank">RepositoryInfoTest.java:213</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Multifiling capability: false (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l218" target="_blank">RepositoryInfoTest.java:218</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace25');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace25" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l218" target="_blank">RepositoryInfoTest.java:218</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Unfiling capability: false (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l223" target="_blank">RepositoryInfoTest.java:223</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace26');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace26" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l223" target="_blank">RepositoryInfoTest.java:223</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Version specific filing capability: false (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l228" target="_blank">RepositoryInfoTest.java:228</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace27');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace27" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l228" target="_blank">RepositoryInfoTest.java:228</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Query capability: BOTHCOMBINED (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l233" target="_blank">RepositoryInfoTest.java:233</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace28');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace28" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l233" target="_blank">RepositoryInfoTest.java:233</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: JOIN capability: NONE (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l238" target="_blank">RepositoryInfoTest.java:238</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace29');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace29" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l238" target="_blank">RepositoryInfoTest.java:238</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: All versions searchable capability: false (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l243" target="_blank">RepositoryInfoTest.java:243</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace30');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace30" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l243" target="_blank">RepositoryInfoTest.java:243</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: PWC searchable capability: false (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l248" target="_blank">RepositoryInfoTest.java:248</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace31');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace31" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l248" target="_blank">RepositoryInfoTest.java:248</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: PWC updatable capability: true (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l253" target="_blank">RepositoryInfoTest.java:253</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace32');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace32" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l253" target="_blank">RepositoryInfoTest.java:253</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Renditions capability: READ (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l258" target="_blank">RepositoryInfoTest.java:258</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace33');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace33" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l258" target="_blank">RepositoryInfoTest.java:258</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: 'New type settable attributes' flags are set. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l264" target="_blank">RepositoryInfoTest.java:264</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace34');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace34" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l264" target="_blank">RepositoryInfoTest.java:264</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: 'Creatable property types' flags are set. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l269" target="_blank">RepositoryInfoTest.java:269</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace35');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace35" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l269" target="_blank">RepositoryInfoTest.java:269</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Supported permissions: BOTH (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l282" target="_blank">RepositoryInfoTest.java:282</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace36');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace36" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l282" target="_blank">RepositoryInfoTest.java:282</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: ACL propagation: PROPAGATE (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l287" target="_blank">RepositoryInfoTest.java:287</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace37');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace37" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l287" target="_blank">RepositoryInfoTest.java:287</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Permissions: 4 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l293" target="_blank">RepositoryInfoTest.java:293</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace38');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace38" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l293" target="_blank">RepositoryInfoTest.java:293</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Permission mapping: 34 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l314" target="_blank">RepositoryInfoTest.java:314</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace39');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace39" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RepositoryInfoTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RepositoryInfoTest.java?view=markup&amp;revision=1617572#l314" target="_blank">RepositoryInfoTest.java:314</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Root Folder Test (ATOMPUB) (9132 ms)</h4>
+
+<p><i>Checks the root folder and its children for specification compliance.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultOK">
+<b>OK</b>: Root folder id: / (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RootFolderTest.java?view=markup&amp;revision=1617572#l57" target="_blank">RootFolderTest.java:57</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace40');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace40" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.basics.RootFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/basics/RootFolderTest.java?view=markup&amp;revision=1617572#l57" target="_blank">RootFolderTest.java:57</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<hr>
+<h3>Types Test Group (ATOMPUB)</h3>
+
+<p><i>Types tests.</i></p>
+
+<h4>Types Test (ATOMPUB) (10608 ms)</h4>
+
+<p><i>Checks all types exposed by the repository for specification compliance.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Checked 19 type definitions. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/BaseTypesTest.java?view=markup&amp;revision=1617572#l174" target="_blank">BaseTypesTest.java:174</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace41');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace41" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.BaseTypesTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/BaseTypesTest.java?view=markup&amp;revision=1617572#l174" target="_blank">BaseTypesTest.java:174</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Create and Delete Type Test (ATOMPUB) (2564 ms)</h4>
+
+<p><i>Creates a document type and deletes it again.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Created type 'tck:testid_without_properties'. Repository assigned the following type id: tck:testid_without_properties (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l672" target="_blank">AbstractSessionTest.java:672</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace42');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace42" style="display:none">
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.createType(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l672" target="_blank">AbstractSessionTest.java:672</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithoutProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l86" target="_blank">CreateAndDeleteTypeTest.java:86</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l74" target="_blank">CreateAndDeleteTypeTest.java:74</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Created type 'tck:testid_with_properties'. Repository assigned the following type id: tck:testid_with_properties (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l672" target="_blank">AbstractSessionTest.java:672</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace43');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace43" style="display:none">
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.createType(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l672" target="_blank">AbstractSessionTest.java:672</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l131" target="_blank">CreateAndDeleteTypeTest.java:131</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:boolean' the following property id: tck:boolean (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace44');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace44" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:id' the following property id: tck:id (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace45');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace45" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:integer' the following property id: tck:integer (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace46');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace46" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:datetime' the following property id: tck:datetime (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace47');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace47" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:decimal' the following property id: tck:decimal (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace48');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace48" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:html' the following property id: tck:html (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace49');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace49" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:string' the following property id: tck:string (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace50');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace50" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Repository assigned the property 'tck:uri' the following property id: tck:uri (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace51');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace51" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.createTypeWithProperties(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l172" target="_blank">CreateAndDeleteTypeTest.java:172</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.types.CreateAndDeleteTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/types/CreateAndDeleteTypeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">CreateAndDeleteTypeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Secondary Types Test (ATOMPUB) (22254 ms)</h4>
+
+<p><i>Creates documents, attaches and detaches secondary types, checks the properties, and finally deletes the test documents.</i></p>
+
+<hr>
+<h3>CRUD Test Group (ATOMPUB)</h3>
+
+<p><i>Create, Read, Update, and Delete tests.</i></p>
+
+<h4>Create and Delete Folder Test (ATOMPUB) (130910 ms)</h4>
+
+<p><i>Creates a few folders, checks the newly created folders and their parent and finally deletes the created folders.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Tested the creation and deletion of 20 folders. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateAndDeleteFolderTest.java?view=markup&amp;revision=1617572#l105" target="_blank">CreateAndDeleteFolderTest.java:105</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace52');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace52" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.CreateAndDeleteFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateAndDeleteFolderTest.java?view=markup&amp;revision=1617572#l105" target="_blank">CreateAndDeleteFolderTest.java:105</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Create and Delete Document Test (ATOMPUB) (229449 ms)</h4>
+
+<p><i>Creates a few documents, checks the newly created documents and their parent and finally deletes the created documents.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Tested the creation and deletion of 20 documents. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateAndDeleteDocumentTest.java?view=markup&amp;revision=1617572#l239" target="_blank">CreateAndDeleteDocumentTest.java:239</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace53');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace53" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.CreateAndDeleteDocumentTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateAndDeleteDocumentTest.java?view=markup&amp;revision=1617572#l239" target="_blank">CreateAndDeleteDocumentTest.java:239</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Create Big Document Test (ATOMPUB) (9866 ms)</h4>
+
+<p><i>Creates a 10 MiB document and deletes it.</i></p>
+
+<h4>Create Document without Content Test (ATOMPUB) (196 ms)</h4>
+
+<p><i>Creates a document without content and deletes it.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultSKIPPED">
+<b>SKIPPED</b>: The test document type does not support documents without content. Test skipped! (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateDocumentWithoutContent.java?view=markup&amp;revision=1617572#l67" target="_blank">CreateDocumentWithoutContent.java:67</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace54');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace54" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.CreateDocumentWithoutContent.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateDocumentWithoutContent.java?view=markup&amp;revision=1617572#l67" target="_blank">CreateDocumentWithoutContent.java:67</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Create Object With Invalid Type Test (ATOMPUB) (7309 ms)</h4>
+
+<p><i>Tries to create document with a folder type and folder with a document type.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultWARNING">
+<b>WARNING</b>: Creation of a document with a folder type threw an 
+unexcpeted exception: 
+org.apache.chemistry.opencmis.commons.exceptions.CmisRuntimeException: 
+Newly created object is not a document! New id: Object Id: 
+4ee2ea3eaf19026469fbf9db720d1885 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateInvalidTypeTest.java?view=markup&amp;revision=1617572#l69" target="_blank">CreateInvalidTypeTest.java:69</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace55');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace55" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.CreateInvalidTypeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateInvalidTypeTest.java?view=markup&amp;revision=1617572#l69" target="_blank">CreateInvalidTypeTest.java:69</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Name Charset Test (ATOMPUB) (120652 ms)</h4>
+
+<p><i>Creates and deletes documents with special characters in cmis:name.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Tested 21 different names. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/NameCharsetTest.java?view=markup&amp;revision=1617572#l103" target="_blank">NameCharsetTest.java:103</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace56');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace56" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.NameCharsetTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/NameCharsetTest.java?view=markup&amp;revision=1617572#l103" target="_blank">NameCharsetTest.java:103</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Create and Delete Relationship Test (ATOMPUB) (18321 ms)</h4>
+
+<p><i>Creates a relationship between two documents, checks the newly 
+created relationship and finally deletes the created relationship.</i></p>
+
+<h4>Create and Delete Item Test (ATOMPUB) (73217 ms)</h4>
+
+<p><i>Creates a few items, checks the newly created itens and their parent and finally deletes the created item.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Tested the creation and deletion of 20 items. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateAndDeleteItemTest.java?view=markup&amp;revision=1617572#l110" target="_blank">CreateAndDeleteItemTest.java:110</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace57');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace57" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.CreateAndDeleteItemTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/CreateAndDeleteItemTest.java?view=markup&amp;revision=1617572#l110" target="_blank">CreateAndDeleteItemTest.java:110</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Property Filter Test (ATOMPUB) (10324 ms)</h4>
+
+<p><i>Tests different property filter combinations for documents and folders.</i></p>
+
+<h4>Update Smoke Test (ATOMPUB) (17755 ms)</h4>
+
+<p><i>Creates a document, updates its name and finally deletes it.</i></p>
+
+<h4>Bulk Update Properties Test (ATOMPUB) (217509 ms)</h4>
+
+<p><i>Creates a few folders and documents, renames all documents at once, and deletes all created objects.</i></p>
+
+<h4>Set, Append, and Delete Content Test (ATOMPUB) (14477 ms)</h4>
+
+<p><i>Creates a new document and tries to set, append, and delete its content.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultSKIPPED">
+<b>SKIPPED</b>: A content stream is required for this document type. deleteContentStream() test skipped! (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/SetAndDeleteContentTest.java?view=markup&amp;revision=1617572#l103" target="_blank">SetAndDeleteContentTest.java:103</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace58');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace58" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.SetAndDeleteContentTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/SetAndDeleteContentTest.java?view=markup&amp;revision=1617572#l103" target="_blank">SetAndDeleteContentTest.java:103</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Change Token Test (ATOMPUB) (35090 ms)</h4>
+
+<p><i>Creates a document and a folder and updates them with an outdated change token.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: The repository created a new version. Change tokens are not relevant here. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/ChangeTokenTest.java?view=markup&amp;revision=1617572#l173" target="_blank">ChangeTokenTest.java:173</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace59');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace59" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.crud.ChangeTokenTest.runContentTest(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/ChangeTokenTest.java?view=markup&amp;revision=1617572#l173" target="_blank">ChangeTokenTest.java:173</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.crud.ChangeTokenTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/crud/ChangeTokenTest.java?view=markup&amp;revision=1617572#l67" target="_blank">ChangeTokenTest.java:67</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Content Ranges Test (ATOMPUB) (10145 ms)</h4>
+
+<p><i>Creates a document and reads different excerpts of the content.</i></p>
+
+<h4>Copy Test (ATOMPUB) (21927 ms)</h4>
+
+<p><i>Creates two folders and a document and copies the document from 
+one folder to the other.  If the AtomPub binding is used, this test is 
+skipped.</i></p>
+
+<h4>Move Test (ATOMPUB) (18185 ms)</h4>
+
+<p><i>Creates two folders and a document and moves the document from one folder to the other.</i></p>
+
+<h4>Delete Tree Test (ATOMPUB) (96542 ms)</h4>
+
+<p><i>Creates a few documents in a folder, deletes the folder and checks if all documents are gone.</i></p>
+
+<h4>Operation Context (ATOMPUB) (9626 ms)</h4>
+
+<p><i>Creates a document, retrieves a minimal set of details, checks it, and finally deletes the document.</i></p>
+
+<hr>
+<h3>Versioning Test Group (ATOMPUB)</h3>
+
+<p><i>Versioning tests.</i></p>
+
+<h4>Versioning Smoke Test (ATOMPUB) (24258 ms)</h4>
+
+<p><i>Creates a document, checks it out, cancels the check out, checks it out again and finally checks it in.</i></p>
+
+<h4>Versioning Delete Test (ATOMPUB) (33892 ms)</h4>
+
+<p><i>Creates a document, adds three versions and deletes the current version until the document is gone.</i></p>
+
+<h4>Versioning State Create Test (ATOMPUB) (17070 ms)</h4>
+
+<p><i>Creates documents in different versioning states.</i></p>
+
+<h4>Checked out Test (ATOMPUB) (13664 ms)</h4>
+
+<p><i>Calls getCheckedOutDocs() and checks the returned objects.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: 1 checked out document(s) overall. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/versioning/CheckedOutTest.java?view=markup&amp;revision=1617572#l74" target="_blank">CheckedOutTest.java:74</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace60');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace60" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.versioning.CheckedOutTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/versioning/CheckedOutTest.java?view=markup&amp;revision=1617572#l74" target="_blank">CheckedOutTest.java:74</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: 1 checked out document(s) in the test folder. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/versioning/CheckedOutTest.java?view=markup&amp;revision=1617572#l84" target="_blank">CheckedOutTest.java:84</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace61');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace61" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.versioning.CheckedOutTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/versioning/CheckedOutTest.java?view=markup&amp;revision=1617572#l84" target="_blank">CheckedOutTest.java:84</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<hr>
+<h3>Filing Test Group (ATOMPUB)</h3>
+
+<p><i>Multifiling anf Unfiling tests.</i></p>
+
+<h4>Multifiling Test (ATOMPUB) (102 ms)</h4>
+
+<p><i>Creates two folders and a document in one of the folders, adds the
+ document to the second folder and then removes it again for the second 
+folder.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultSKIPPED">
+<b>SKIPPED</b>: Multifling not supported. Test Skipped! (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/filing/MultifilingTest.java?view=markup&amp;revision=1617572#l124" target="_blank">MultifilingTest.java:124</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace62');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace62" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.filing.MultifilingTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/filing/MultifilingTest.java?view=markup&amp;revision=1617572#l124" target="_blank">MultifilingTest.java:124</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Unfiling Test (ATOMPUB) (100 ms)</h4>
+
+<p><i>Creates a folder and a document, removes the document from the folder and then adds it again.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultSKIPPED">
+<b>SKIPPED</b>: Unfiling not supported. Test Skipped! (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/filing/UnfilingTest.java?view=markup&amp;revision=1617572#l105" target="_blank">UnfilingTest.java:105</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace63');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace63" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.filing.UnfilingTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/filing/UnfilingTest.java?view=markup&amp;revision=1617572#l105" target="_blank">UnfilingTest.java:105</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<hr>
+<h3>Control Test Group (ATOMPUB)</h3>
+
+<p><i>ACL and Policy tests.</i></p>
+
+<h4>ACL Test (ATOMPUB) (10667 ms)</h4>
+
+<p><i>Creates a document and checks its ACL.</i></p>
+
+<hr>
+<h3>Query Test Group (ATOMPUB)</h3>
+
+<p><i>Query and content changes tests.</i></p>
+
+<h4>Query Smoke Test (ATOMPUB) (1324 ms)</h4>
+
+<p><i>Performs a simple query and checks if the format of the results is correct. It does not check if the results are complete!</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT * FROM cmis:document (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QuerySmokeTest.java?view=markup&amp;revision=1617572#l62" target="_blank">QuerySmokeTest.java:62</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace64');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace64" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QuerySmokeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QuerySmokeTest.java?view=markup&amp;revision=1617572#l62" target="_blank">QuerySmokeTest.java:62</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: 1 query results for "SELECT * FROM cmis:document" (page size = 100) (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QuerySmokeTest.java?view=markup&amp;revision=1617572#l123" target="_blank">QuerySmokeTest.java:123</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace65');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace65" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QuerySmokeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QuerySmokeTest.java?view=markup&amp;revision=1617572#l123" target="_blank">QuerySmokeTest.java:123</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Query Root Folder Test (ATOMPUB) (792 ms)</h4>
+
+<p><i>Performs a query that should return the root folder name and id.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT cmis:name AS folderName, cmis:objectId AS folderId FROM cmis:folder WHERE cmis:objectId = '/' (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryRootFolderTest.java?view=markup&amp;revision=1617572#l78" target="_blank">QueryRootFolderTest.java:78</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace66');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace66" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryRootFolderTest.queryById(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryRootFolderTest.java?view=markup&amp;revision=1617572#l78" target="_blank">QueryRootFolderTest.java:78</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryRootFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryRootFolderTest.java?view=markup&amp;revision=1617572#l51" target="_blank">QueryRootFolderTest.java:51</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT cmis:name AS folderName, cmis:objectId AS 
+folderId FROM cmis:folder WHERE cmis:creationDate &gt; TIMESTAMP 
+'2012-12-31T23:00:00.000Z' AND cmis:creationDate &lt; TIMESTAMP 
+'2013-01-01T01:00:00.000Z' (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryRootFolderTest.java?view=markup&amp;revision=1617572#l129" target="_blank">QueryRootFolderTest.java:129</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace67');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace67" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryRootFolderTest.queryByDate(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryRootFolderTest.java?view=markup&amp;revision=1617572#l129" target="_blank">QueryRootFolderTest.java:129</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryRootFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryRootFolderTest.java?view=markup&amp;revision=1617572#l52" target="_blank">QueryRootFolderTest.java:52</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Query For Object Test (ATOMPUB) (9869 ms)</h4>
+
+<p><i>Creates a folder and a document, queries them by object id, and deletes both.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Folder query: SELECT * FROM cmis:folder WHERE cmis:objectId = '4ee2ea3eaf19026469fbf9db722a8b3e' (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l91" target="_blank">QueryForObject.java:91</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace68');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace68" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.runFolderQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l91" target="_blank">QueryForObject.java:91</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l56" target="_blank">QueryForObject.java:56</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Folder query: SELECT * FROM cmis:folder WHERE cmis:objectId IN ('4ee2ea3eaf19026469fbf9db722a8b3e') (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l91" target="_blank">QueryForObject.java:91</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace69');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace69" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.runFolderQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l91" target="_blank">QueryForObject.java:91</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l56" target="_blank">QueryForObject.java:56</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Document query: SELECT * FROM cmis:document WHERE cmis:objectId = '4ee2ea3eaf19026469fbf9db722aafd1' (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l126" target="_blank">QueryForObject.java:126</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace70');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace70" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.runDocumentQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l126" target="_blank">QueryForObject.java:126</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l59" target="_blank">QueryForObject.java:59</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Document query: SELECT * FROM cmis:document WHERE cmis:objectId IN ('4ee2ea3eaf19026469fbf9db722aafd1') (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l126" target="_blank">QueryForObject.java:126</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace71');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace71" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.runDocumentQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l126" target="_blank">QueryForObject.java:126</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryForObject.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryForObject.java?view=markup&amp;revision=1617572#l59" target="_blank">QueryForObject.java:59</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Query LIKE Test (ATOMPUB) (247453 ms)</h4>
+
+<p><i>Performs a LIKE query and checks if only matching objects are returned.</i></p>
+
+<h4>Query IN_FOLDER and IN_TREE Test (ATOMPUB) (286288 ms)</h4>
+
+<p><i>Performs IN_FOLDER and IN_TREE queries.</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT cmis:objectId FROM cmis:document WHERE IN_FOLDER('4ee2ea3eaf19026469fbf9db723387fb') (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace72');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace72" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l86" target="_blank">QueryInFolderTest.java:86</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Hits: 5 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace73');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace73" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l86" target="_blank">QueryInFolderTest.java:86</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT cmis:objectId FROM cmis:document WHERE IN_TREE('4ee2ea3eaf19026469fbf9db723387fb') (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace74');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace74" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l87" target="_blank">QueryInFolderTest.java:87</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Hits: 10 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace75');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace75" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l87" target="_blank">QueryInFolderTest.java:87</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT cmis:objectId FROM cmis:folder WHERE IN_FOLDER('4ee2ea3eaf19026469fbf9db723387fb') (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace76');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace76" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l88" target="_blank">QueryInFolderTest.java:88</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Hits: 5 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace77');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace77" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l88" target="_blank">QueryInFolderTest.java:88</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Query: SELECT cmis:objectId FROM cmis:folder WHERE IN_TREE('4ee2ea3eaf19026469fbf9db723387fb') (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace78');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace78" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l110" target="_blank">QueryInFolderTest.java:110</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l89" target="_blank">QueryInFolderTest.java:89</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Hits: 10 (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace79');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace79" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.doQuery(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l151" target="_blank">QueryInFolderTest.java:151</a>)<br>
+org.apache.chemistry.opencmis.tck.tests.query.QueryInFolderTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/QueryInFolderTest.java?view=markup&amp;revision=1617572#l89" target="_blank">QueryInFolderTest.java:89</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+</div>
+</div>
+
+<h4>Content Changes Smoke Test (ATOMPUB) (167374 ms)</h4>
+
+<p><i>Calls getContentChanges(). It does not check if the results are correct!</i></p>
+<div style="padding: 5px;">
+<div class="tckResultINFO">
+<b>INFO</b>: Change log token is not null. Probably an OpenCMIS based server. (<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/ContentChangesSmokeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">ContentChangesSmokeTest.java:75</a>) [<span class="tckTraceLink" onclick="tckToggleDisplay('tckTrace80');">stacktrace</span>]<br>
+<div class="tckTrace" id="tckTrace80" style="display:none">
+org.apache.chemistry.opencmis.tck.tests.query.ContentChangesSmokeTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/tests/query/ContentChangesSmokeTest.java?view=markup&amp;revision=1617572#l75" target="_blank">ContentChangesSmokeTest.java:75</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractSessionTest.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractSessionTest.java?view=markup&amp;revision=1617572#l162" target="_blank">AbstractSessionTest.java:162</a>)<br>
+org.apache.chemistry.opencmis.tck.impl.AbstractCmisTestGroup.run(<a href="https://svn.apache.org/viewvc/chemistry/opencmis/trunk/chemistry-opencmis-test/chemistry-opencmis-test-tck/src/main/java/org/apache/chemistry/opencmis/tck/impl/AbstractCmisTestGroup.java?view=markup&amp;revision=1617572#l109" target="_blank">AbstractCmisTestGroup.java:109</a>)<br>
+</div>
+<div class="tckResultINFO">
+<b>INFO</b>: Object is not null!<br>
+</div>
+</div>
+</div>
+
+
+</body></html>
